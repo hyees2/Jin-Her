@@ -198,7 +198,7 @@ main {
 	font-size: 0.8rem;
 	margin-top: 1vh;
     overflow-wrap: break-word;
-	max-width: 44vw; /* Adjust the value to your desired maximum width */
+	max-width: 47vw; /* Adjust the value to your desired maximum width */
     color: rgba(0, 0, 0, 1);
 	background-color: rgb(255, 255, 255);
 }
