@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"; // ✅ Navigate 추가
 import Header from "./components/Header";
 import About from "./components/About";
 import Work from "./components/Work";
@@ -13,41 +13,41 @@ export default function App() {
   // 반응형 좌측 패딩
   useEffect(() => {
     const handleResize = () => {
-      // 768px 미만일 때 패딩 값 변경
       if (window.innerWidth < 768) setLeftPadding(7);
-      else setLeftPadding(40); // 데스크탑 크기일 때 다시 40으로 변경
+      else setLeftPadding(40);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // 컴포넌트 마운트 시 초기 값 설정
+    handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-<BrowserRouter>
-  <div
-    style={{
-      background: "#ffffff", //메인영역 색상
-      minHeight: "100vh",
-      display: "flex",          // 여기에 추가
-      flexDirection: "column",  // 여기에 추가
-    }}
-  >
-    <Header leftPadding={leftPadding} />
+    <BrowserRouter basename="/Jin-Her">   {/* ✅ basename 추가해서 Pages 경로 보장 */}
+      <div
+        style={{
+          background: "#ffffff",
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Header leftPadding={leftPadding} />
 
-    <main style={{ flex: 1 }}>   {/* 이 부분으로 Routes 감싸기 */}
-      <Routes>
-        <Route path="/" element={<Work leftPadding={leftPadding} />} />
-        <Route path="/about" element={<About leftPadding={leftPadding} />} />
-        <Route path="/work" element={<Work leftPadding={leftPadding} />} />
-        <Route path="/feed" element={<Feed leftPadding={leftPadding} />} />
-        <Route path="/work/:id" element={<WorkDetail leftPadding={leftPadding} />} />
-      </Routes>
-    </main>
+        <main style={{ flex: 1 }}>
+          <Routes>
+            {/* ✅ "/" 접근하면 "/work"로 자동 이동 */}
+            <Route path="/" element={<Navigate to="/work" replace />} />
 
-    <Footer leftPadding={leftPadding} />
-  </div>
-</BrowserRouter>
+            <Route path="/about" element={<About leftPadding={leftPadding} />} />
+            <Route path="/work" element={<Work leftPadding={leftPadding} />} />
+            <Route path="/feed" element={<Feed leftPadding={leftPadding} />} />
+            <Route path="/work/:id" element={<WorkDetail leftPadding={leftPadding} />} />
+          </Routes>
+        </main>
 
+        <Footer leftPadding={leftPadding} />
+      </div>
+    </BrowserRouter>
   );
 }
