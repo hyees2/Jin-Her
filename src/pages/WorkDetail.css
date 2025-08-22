@@ -1,0 +1,93 @@
+/* src/pages/WorkDetail.css */
+
+/* Fonts */
+@font-face {
+  font-family: 'Switzer';
+  src: url('../assets/fonts/Switzer-Semibold.woff2') format('woff2'),
+       url('../assets/fonts/Switzer-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OverusedGrotesk';
+  src: url('../assets/fonts/OverusedGrotesk-Medium.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-family: 'OverusedGrotesk', sans-serif;
+}
+
+/* 🆎 Switzer 폰트용 클래스 */
+.switzer {
+  font-family: 'Switzer', sans-serif;
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+/* 칼럼 안에 p 폰트/사이즈 */
+p {
+  font-family: 'OverusedGrotesk';
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+/* 공통 마진 클래스 */
+.meta-label-margin {
+  margin: 0 0 0.3rem 0; 
+  font-family: 'Switzer', sans-serif;
+}
+
+.title-margin {
+  margin-bottom: clamp(25px, 5vw, 50px);
+}
+
+/* Images Grid */
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 데스크탑 기본: 2컬럼 */
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+
+
+/* Media Queries */
+@media (max-width: 767px) {
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block !important; }
+  .grid-wrapper { display: block !important; }
+
+  /* More Works 모바일 1컬럼 */
+  .more-works-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Medium + Year 모바일 2컬럼 */
+  div[style*="flex-direction: column"][style*="order: 1"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Images 모바일 1컬럼 */
+  .images-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .images-grid img {
+    grid-column: unset !important;
+    width: 100% !important;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-only { display: none !important; }
+  .desktop-only { display: flex !important; }
+}

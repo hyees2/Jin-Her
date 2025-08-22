@@ -1,0 +1,27 @@
+
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+}
+
+.nav-links a:hover {
+  color: #0070f3;
+}
+
+.content {
+  padding-top: 120px; /* 헤더 때문에 여백 */
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}

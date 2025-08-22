@@ -1,0 +1,65 @@
+:root {
+  color-scheme: light;
+  color: #212121; /* 텍스트 진한 색 */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+a {
+  font-weight: 500;
+  color: #1a1a1a; /* 링크 기본 색상 */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #646cff; /* 호버 시 포인트 컬러 */
+}
+
+h1 {
+  font-size: 3em;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+button {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f5f5f5; /* 버튼 밝은 회색 */
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+button:hover {
+  background-color: #e0e0ff; /* 살짝 포인트 컬러 느낌 */
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+
+/* 반응형 조정 예시 */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #212121;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #646cff;
+  }
+  button {
+    background-color: #f5f5f5;
+  }
+}
