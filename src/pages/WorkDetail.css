@@ -1,0 +1,192 @@
+/* src/pages/WorkDetail.css */
+
+/* Fonts */
+@font-face {
+  font-family: 'Switzer';
+  src: url('../assets/fonts/Switzer-Semibold.woff2') format('woff2'),
+       url('../assets/fonts/Switzer-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OverusedGrotesk';
+  src: url('../assets/fonts/OverusedGrotesk-Medium.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-family: 'OverusedGrotesk', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🆎 Switzer 폰트용 클래스 */
+.switzer {
+  font-family: 'Switzer', sans-serif;
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+/* 일반 p 스타일 */
+p {
+  font-family: 'OverusedGrotesk';
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* 공통 마진 클래스 */
+.meta-label-margin {
+  margin: 0 0 0.3rem 0; 
+  font-family: 'Switzer', sans-serif;
+}
+
+.title-margin {
+  margin-bottom: clamp(25px, 5vw, 50px);
+}
+
+/* ======================
+   More Works Grid
+====================== */
+.more-works-wrapper {
+  margin-top: clamp(3rem, 10vw, 6rem);
+}
+
+.more-works-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.more-works-title {
+  font-size: clamp(24px, 5vw, 36px);
+    font-family: 'Switzer', sans-serif; /* Switzer 폰트 적용 */
+  font-weight: 600; /* Switzer-Semibold 기준 */
+  color: #000; /* TITLE_COLOR에 맞춰서 변경 가능 */
+}
+
+/* View All */
+.more-works-link {
+  font-size: 0.875rem;
+  font-family: 'Switzer', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease; /* 부드러운 트랜지션 추가 */
+}
+
+/* 호버 효과 */
+.more-works-link:hover {
+  color: #555555; /* 색상 변경 */
+  transform: translateY(-2px); /* 살짝 위로 이동 */
+  text-decoration: underline; /* 밑줄 추가 */
+}
+
+
+
+
+.more-works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.more-works-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.more-works-image-wrapper {
+  position: relative;
+  border-radius: clamp(8px, 2vw, 24px);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.more-works-image-wrapper {
+  overflow: hidden; /* 이미지 확대 시 넘치는 부분 잘림 */
+  border-radius: clamp(8px, 2vw, 24px);
+  position: relative;
+    aspect-ratio: 16 / 9; /* 16:9 비율로 변경 */
+}
+
+.more-works-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease; /* 부드러운 확대 효과 */
+}
+
+.more-works-item:hover .more-works-image {
+  transform: scale(1.05); /* 5% 확대 */
+}
+
+/* More works에 타이틀나오는부분*/
+.more-works-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.625rem;
+  color: white;
+}
+
+.more-works-title-text {
+  font-family: 'Switzer', sans-serif; /* Switzer 폰트 적용 */
+  font-weight: 600; /* Switzer-Semibold 기준 */
+  margin: 0.5rem 0.5rem 0.2rem 0.5rem; /* top right bottom left */
+}
+
+.more-works-medium-text {
+  font-size: 0.75rem;
+}
+
+/* ======================
+   Images Grid
+====================== */
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 데스크탑 기본 2컬럼 */
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.images-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ======================
+   Media Queries
+====================== */
+@media (max-width: 767px) {
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block !important; }
+  .grid-wrapper { display: block !important; }
+
+  /* More Works 모바일 1컬럼 */
+  .more-works-grid {
+    grid-template-columns: 1fr; /* 1컬럼 */
+    gap: 0.75rem;
+  }
+
+  /* Images 모바일 1컬럼 */
+  .images-grid {
+    grid-template-columns: 1fr;
+  }
+  .images-grid img {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-only { display: none !important; }
+  .desktop-only { display: flex !important; }
+}

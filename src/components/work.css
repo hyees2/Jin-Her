@@ -1,0 +1,85 @@
+/* 컨테이너 및 기본 그리드 설정 */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 60px;
+}
+
+@media (max-width: 767px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 개별 그리드 아이템 전체를 감싸는 래퍼 */
+.gridItemWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 이미지를 감싸는 링크 컨테이너 */
+.gridItemImage {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: clamp(8px, 2vw, 24px);
+}
+
+.scrolling-text {
+  color: rgb(40, 40, 40); /* 원하는 색으로 바꿔주면 됨 (#hex, rgb, hsl 등 가능) */
+  font-weight: bold; /* 필요하면 굵게 */
+}
+
+
+/* 이미지 */
+.gridItemImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 여러 태그를 담는 컨테이너 */
+.gridItemTitles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+/* 각 태그에 대한 스타일 */
+.tag {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: clamp(12px, 2.5vw, 14px);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* 호버 효과 관련 스타일 */
+.hoverOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.hoverButton {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: clamp(14px, 3vw, 16px);
+  font-weight: bold;
+  cursor: pointer;
+}
